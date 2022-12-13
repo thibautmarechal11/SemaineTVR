@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using PDollarGestureRecognizer;
 
 public class MovementRecognizer : MonoBehaviour
 {
@@ -13,7 +14,10 @@ public class MovementRecognizer : MonoBehaviour
 
     public float newPositionThresholdDistance = 0.05f;
     public GameObject debugCubePrefab;
+    public bool creationMode = true;
+    public string newGestureName;
 
+    private List<Gesture> trainingSet = new List<Gesture>();
     private bool isMoving = false;
     private List<Vector3> positionsList = new List<Vector3>();
 
@@ -55,7 +59,32 @@ public class MovementRecognizer : MonoBehaviour
     {
         TextDebug.Instance.Text("End Movement");
         isMoving = false;
+
+        //Create the gesture from the position list
+        Point[] pointArray = new Point[positionsList.Count];
+
+        for (int i = 0; i < positionsList.Count; i++)
+        {
+            Vector2 screenPoint = Camera.main.WorldToScreenPoint(positionsList[i]);
+            pointArray[i] = new Point(screenPoint.x, screenPoint.y, 0);
+        }
+
+        Gesture newGesture = new Gesture(pointArray);
+
+        //Add a new gesture to training set
+        if(creationMode)
+        {
+            newGesture.Name = newGestureName;
+            trainingSet.Add(newGesture);
+        }
+        //Recognize
+        else
+        {
+            Result result = PointCloudRecognizer.Classify(newGesture, trainingSet.ToArray());
+            MovementRecognisionDebug.Instance.Text(result.GestureClass +" "+ result.Score);
+        }
     }
+
 
     void UpdateMovement()
     {
