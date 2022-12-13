@@ -2468,7 +2468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1499884324}
-  - component: {fileID: 1499884323}
+  - component: {fileID: 1499884325}
   m_Layer: 0
   m_Name: Movement Recognizer
   m_TagString: Untagged
@@ -2476,27 +2476,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1499884323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499884322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f163e019c4b5ba54790a543e2c2857fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputSource: 5
-  inputButton: 2
-  inputTheshold: 0.1
-  movementSource: {fileID: 541096546}
-  newPositionThresholdDistance: 0.02
-  debugCubePrefab: {fileID: 4028461637692966927, guid: 91208da34a9422d4895963d7a45dd9a4,
-    type: 3}
-  creationMode: 0
-  newGestureName: fire
 --- !u!4 &1499884324
 Transform:
   m_ObjectHideFlags: 0
@@ -2512,6 +2491,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499884325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499884322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6927720c5a7cc94390810920a24daba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputSource: 5
+  inputButton: 2
+  inputTheshold: 0.1
+  movementSource: {fileID: 541096546}
+  newPositionThresholdDistance: 0.02
+  debugCubePrefab: {fileID: 4028461637692966927, guid: 91208da34a9422d4895963d7a45dd9a4,
+    type: 3}
+  creationMode: 0
+  newGestureName: 
 --- !u!43 &1673867065
 Mesh:
   m_ObjectHideFlags: 0
