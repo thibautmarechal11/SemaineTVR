@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using PDollarGestureRecognizer;
 using System.IO;
 
+
 public class MovementRecognizer : MonoBehaviour
 {
     public XRNode inputSource;
@@ -22,8 +23,14 @@ public class MovementRecognizer : MonoBehaviour
     private bool isMoving = false;
     private List<Vector3> positionsList = new List<Vector3>();
 
+    #region Audio FMOD
+    public FMOD.Studio.EventInstance castSound;
+    #endregion
+
     private void Start()
     {
+        castSound = FMODUnity.RuntimeManager.CreateInstance("eevent:/Cast_Loop");
+
         string[] gestureFiles = Directory.GetFiles(Application.persistentDataPath, "*.xml");
         foreach (var item in gestureFiles)
         {
@@ -56,8 +63,11 @@ public class MovementRecognizer : MonoBehaviour
         TextDebug.Instance.Text("Start Movement");
 
         isMoving= true;
+
         positionsList.Clear();
         positionsList.Add(movementSource.position);
+
+        castSound.start();
 
         if(debugCubePrefab) 
             Destroy(Instantiate(debugCubePrefab, movementSource.position, Quaternion.identity),3);
@@ -67,6 +77,8 @@ public class MovementRecognizer : MonoBehaviour
     {
         TextDebug.Instance.Text("End Movement");
         isMoving = false;
+
+        castSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         //Create the gesture from the position list
         Point[] pointArray = new Point[positionsList.Count];

@@ -91,5 +91,6 @@ fmod.log
 fmod_editor.log
 
 # FMOD 1.10.x (Legacy)
+/Assets/FMOD Project/SemaineTVR/.cache
 /Assets/FMODAssets/*
 /Assets/FMODStudioCache.meta
