@@ -6,8 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using PDollarGestureRecognizer;
 using System.IO;
 
-
-public class MovementRecognizer : MonoBehaviour
+public class MovementRecognizerV2 : MonoBehaviour
 {
     public XRNode inputSource;
     public InputHelpers.Button inputButton;
@@ -31,18 +30,17 @@ public class MovementRecognizer : MonoBehaviour
     {
         castSound = FMODUnity.RuntimeManager.CreateInstance("event:/Cast_Loop");
 
-        string[] gestureFiles = Directory.GetFiles(Application.persistentDataPath, "*.xml");
-        foreach (var item in gestureFiles)
-        {
-            trainingSet.Add(GestureIO.ReadGestureFromFile(item));
-        }
+        TextAsset[] gesturesXml = Resources.LoadAll<TextAsset>("GestureSet/CustomGestureSet");
+        foreach (TextAsset gestureXml in gesturesXml)
+            trainingSet.Add(GestureIO.ReadGestureFromXML(gestureXml.text));
+
     }
     void Update()
     {
         InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out bool isPressed, inputTheshold);
-   
+
         //Start the movement
-        if(!isMoving && isPressed)
+        if (!isMoving && isPressed)
         {
             StartMovement();
         }
@@ -62,15 +60,15 @@ public class MovementRecognizer : MonoBehaviour
     {
         TextDebug.Instance.Text("Start Movement");
 
-        isMoving= true;
+        isMoving = true;
 
         positionsList.Clear();
         positionsList.Add(movementSource.position);
 
         castSound.start();
 
-        if(debugCubePrefab) 
-            Destroy(Instantiate(debugCubePrefab, movementSource.position, Quaternion.identity),3);
+        if (debugCubePrefab)
+            Destroy(Instantiate(debugCubePrefab, movementSource.position, Quaternion.identity), 3);
     }
 
     void EndMovement()
@@ -92,7 +90,7 @@ public class MovementRecognizer : MonoBehaviour
         Gesture newGesture = new Gesture(pointArray);
 
         //Add a new gesture to training set
-        if(creationMode)
+        if (creationMode)
         {
             newGesture.Name = newGestureName;
             trainingSet.Add(newGesture);
@@ -105,9 +103,8 @@ public class MovementRecognizer : MonoBehaviour
         else
         {
             Result result = PointCloudRecognizer.Classify(newGesture, trainingSet.ToArray());
-            MovementRecognisionDebug.Instance.Text(result.GestureClass +" "+ result.Score);
+            MovementRecognisionDebug.Instance.Text(result.GestureClass + " " + result.Score);
 
-            
         }
     }
 
@@ -116,8 +113,8 @@ public class MovementRecognizer : MonoBehaviour
     {
         TextDebug.Instance.Text("Update Movement");
 
-        Vector3 lastPosition = positionsList[positionsList.Count - 1];  
-        if(Vector3.Distance(movementSource.position, lastPosition) > newPositionThresholdDistance)
+        Vector3 lastPosition = positionsList[positionsList.Count - 1];
+        if (Vector3.Distance(movementSource.position, lastPosition) > newPositionThresholdDistance)
         {
             positionsList.Add(movementSource.position);
 

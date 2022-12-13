@@ -5,7 +5,7 @@
 			<value>Cast_Loop</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{69ee630f-270e-4903-b70e-42010dc13464}</destination>
@@ -130,7 +130,6 @@
 	<object class="MixerBusEffectChain" id="{da0a9c6e-f131-47c3-8667-79e4c3fb78c7}">
 		<relationship name="effects">
 			<destination>{65a440a8-7608-4b83-9832-4557d500eb90}</destination>
-			<destination>{ab17b50d-0b79-4e3f-8352-5007995765e9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{836d4fd7-22d4-415c-b000-cd1647d4ff6a}" />
@@ -142,6 +141,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{82ec40d9-34f7-4ae3-975d-29d8195ea9d6}" />
 	<object class="MixerBusFader" id="{65a440a8-7608-4b83-9832-4557d500eb90}" />
-	<object class="SpatialiserEffect" id="{ab17b50d-0b79-4e3f-8352-5007995765e9}" />
 	<object class="MixerBusFader" id="{4d67059f-9847-4172-b0ec-526aa0566c2f}" />
 </objects>
