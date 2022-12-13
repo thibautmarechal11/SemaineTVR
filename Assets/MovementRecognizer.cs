@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using PDollarGestureRecognizer;
+using System.IO;
 
 public class MovementRecognizer : MonoBehaviour
 {
@@ -21,7 +22,14 @@ public class MovementRecognizer : MonoBehaviour
     private bool isMoving = false;
     private List<Vector3> positionsList = new List<Vector3>();
 
-
+    private void Start()
+    {
+        string[] gestureFiles = Directory.GetFiles(Application.persistentDataPath, "*.xml");
+        foreach (var item in gestureFiles)
+        {
+            trainingSet.Add(GestureIO.ReadGestureFromFile(item));
+        }
+    }
     void Update()
     {
         InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out bool isPressed, inputTheshold);
@@ -76,12 +84,18 @@ public class MovementRecognizer : MonoBehaviour
         {
             newGesture.Name = newGestureName;
             trainingSet.Add(newGesture);
+
+            string fileName = Application.persistentDataPath + "/" + newGestureName + ".xml";
+            GestureIO.WriteGesture(pointArray, newGestureName, fileName);
+
         }
         //Recognize
         else
         {
             Result result = PointCloudRecognizer.Classify(newGesture, trainingSet.ToArray());
             MovementRecognisionDebug.Instance.Text(result.GestureClass +" "+ result.Score);
+
+            
         }
     }
 
