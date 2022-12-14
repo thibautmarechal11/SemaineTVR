@@ -22,9 +22,16 @@ public class MovementRecognizerV2 : MonoBehaviour
     private bool isMoving = false;
     private List<Vector3> positionsList = new List<Vector3>();
 
+    SpellController spellController;
+
     #region Audio FMOD
     public FMOD.Studio.EventInstance castSound;
     #endregion
+
+    private void Awake()
+    {
+        spellController = GetComponent<SpellController>();
+    }
 
     private void Start()
     {
@@ -37,7 +44,7 @@ public class MovementRecognizerV2 : MonoBehaviour
     }
     void Update()
     {
-        InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out bool isPressed, inputTheshold);
+        InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out bool isPressed, inputTheshold);  
 
         //Start the movement
         if (!isMoving && isPressed)
