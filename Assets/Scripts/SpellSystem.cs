@@ -18,7 +18,7 @@ public class SpellSystem : MonoBehaviour
 
     }
 
-    protected virtual void Shoot()
+    public virtual void Shoot()
     {
 
     }

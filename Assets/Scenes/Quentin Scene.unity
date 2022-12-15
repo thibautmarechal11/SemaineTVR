@@ -1823,6 +1823,8 @@ GameObject:
   - component: {fileID: 541096550}
   - component: {fileID: 541096549}
   - component: {fileID: 541096548}
+  - component: {fileID: 541096551}
+  - component: {fileID: 541096552}
   m_Layer: 0
   m_Name: RightController
   m_TagString: Untagged
@@ -1878,10 +1880,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f5d929f42d3854bb04aef6c1878795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 4
   projectileSpawn: {fileID: 264362296}
   fireProjectile: {fileID: 8069240162939825542, guid: 1c5e741ea02c2fe4f8eadb21f4f09120,
     type: 3}
+  force: 8
 --- !u!114 &541096549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,7 +1898,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputSource: 5
-  inputButton: 6
+  inputButton: 2
+  currentSpell: 0
+  currentSpellName: 
 --- !u!114 &541096550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1909,14 +1914,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputSource: 5
-  inputButton: 2
+  inputButton: 5
   inputTheshold: 0.1
   movementSource: {fileID: 541096546}
   newPositionThresholdDistance: 0.02
   debugCubePrefab: {fileID: 4028461637692966927, guid: 91208da34a9422d4895963d7a45dd9a4,
     type: 3}
   creationMode: 0
-  newGestureName: fire
+  newGestureName: Air
+--- !u!114 &541096551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541096545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efee7bbb1a0b124883f915cf8bb3f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 8
+  projectileSpawn: {fileID: 264362296}
+  iceProjectile: {fileID: 8069240162939825542, guid: 8181e9313ed9bb746bfc160e66be36a2,
+    type: 3}
+  force: 6
+--- !u!114 &541096552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541096545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0418e42345f8546b27a38b07780033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  projectileSpawn: {fileID: 0}
+  airProjectile: {fileID: 0}
+  force: 8
 --- !u!1001 &583351759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2821,7 +2859,7 @@ GameObject:
   - component: {fileID: 934101486}
   m_Layer: 0
   m_Name: WallsCAGE
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -7050,7 +7088,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31156
+  m_Name: pb_Mesh31214
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7893,6 +7931,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c03892b5024d6e47bd8334f67f81e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1789509067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1468891483462763276, guid: 483965971cb95d14bac280255fdc82ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1468891484540276217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1789509073
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789509067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &1857329197
 GameObject:
   m_ObjectHideFlags: 0
@@ -9852,6 +9910,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem_Entity
       objectReference: {fileID: 0}
+    - target: {fileID: 1468891483462763276, guid: 483965971cb95d14bac280255fdc82ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Golem
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483738662267671061, guid: 483965971cb95d14bac280255fdc82ce,
+        type: 3}
+      propertyPath: slowMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 78ce3c926c09893468f35f400662e77e, type: 2}
+    - target: {fileID: 6483738662267671061, guid: 483965971cb95d14bac280255fdc82ce,
+        type: 3}
+      propertyPath: damageMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bace7a7b1f7cf084b86524857db5eef5, type: 2}
+    - target: {fileID: 6483738662267671061, guid: 483965971cb95d14bac280255fdc82ce,
+        type: 3}
+      propertyPath: normalMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 41fc6ea366f2f3d4eaf92d3d325c33f8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 483965971cb95d14bac280255fdc82ce, type: 3}
 --- !u!1001 &5292534568241588058
