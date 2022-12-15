@@ -113,7 +113,7 @@ public class MovementRecognizerV2 : MonoBehaviour
             //result.GestureClass > Class Gesture du résultat STRING
             //result.Score > Niveau de précision du mouvement de 0 à 1 (0.9 je pense c'est good)
             MovementRecognisionDebug.Instance.Text(result.GestureClass + " " + result.Score);
-            
+            spellController.currentSpellName = result.GestureClass;
         }
     }
 
