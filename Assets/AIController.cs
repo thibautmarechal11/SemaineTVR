@@ -16,7 +16,7 @@ public class AIController : MonoBehaviour
     MoveTowardTarget moveTowardTarget;
     AIAttack aiAttack;
 
-    GameObject player;
+    public GameObject player;
 
     NavMeshAgent agent;
 
@@ -24,12 +24,14 @@ public class AIController : MonoBehaviour
     public Material slowMaterial;
     public Material normalMaterial;
 
+    bool gettingPushed;
+    bool zapped;
+
     private void Awake()
     {
         moveTowardTarget = GetComponent<MoveTowardTarget>();
         aiAttack = GetComponent<AIAttack>();
 
-        player = GameObject.FindGameObjectWithTag("Player");
 
         agent = GetComponent<NavMeshAgent>();
         speedNormal = agent.speed;
@@ -48,6 +50,26 @@ public class AIController : MonoBehaviour
             aiAttack.enabled = true;
         else
             aiAttack.enabled = false;
+
+        if (gettingPushed)
+        {
+            transform.position += (transform.position - player.transform.position) * Time.deltaTime;
+        }
+    }
+
+    public void GetAirPush(float[] param)
+    {
+        GetDamaged(param[0]);
+        StartCoroutine("Pushing", param[1]);
+    }
+
+    IEnumerator Pushing(float distance)
+    {
+        agent.isStopped = true;
+        gettingPushed = true;
+        yield return new WaitForSeconds(distance);
+        gettingPushed = false;
+        agent.isStopped = false;
     }
 
     public void GetSlowed(float[] param)
@@ -88,5 +110,21 @@ public class AIController : MonoBehaviour
         {
             renderer.material = normalMaterial;
         }
+    }
+
+    public void GetZapped(float damage)
+    {
+        if (zapped == false)
+        {
+            GetDamaged(damage);
+            zapped = true;
+            StartCoroutine("Unzap");
+        }
+    }
+
+    IEnumerator Unzap()
+    {
+        yield return new WaitForSeconds(1);
+        zapped = false;
     }
 }

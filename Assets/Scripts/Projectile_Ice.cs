@@ -21,5 +21,7 @@ public class Projectile_Ice : MonoBehaviour
             collision.gameObject.SendMessage("GetSlowed", param);
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Ground")
+            Destroy(gameObject);
     }
 }

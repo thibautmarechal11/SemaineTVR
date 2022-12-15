@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Spell_Air : SpellSystem
+public class Spell_Thunder : SpellSystem
 {
-    [SerializeField] GameObject airProjectile;
+    [SerializeField] GameObject thunderProjectile;
     [SerializeField] float force = 8;
 
     protected override void StartShooting(XRBaseInteractor interactor)
@@ -18,7 +18,7 @@ public class Spell_Air : SpellSystem
     {
         Debug.Log("Air Shoot");
         //base.Shoot();
-        GameObject projectileInstance = Instantiate(airProjectile, projectileSpawn.position, projectileSpawn.rotation);
+        GameObject projectileInstance = Instantiate(thunderProjectile, projectileSpawn.position, projectileSpawn.rotation);
         projectileInstance.GetComponent<Rigidbody>().AddForce(projectileSpawn.forward * force, ForceMode.VelocityChange);
     }
 

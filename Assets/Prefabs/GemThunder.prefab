@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3257214834289387152}
   - component: {fileID: 1659136528577515599}
   - component: {fileID: -5319862634423128721}
-  - component: {fileID: -5006231005272768458}
+  - component: {fileID: 3698286824646167459}
   m_Layer: 0
-  m_Name: GemAir
+  m_Name: GemThunder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 87fb0a287a4035245ab9f9d6cd74a5fe, type: 2}
+  - {fileID: 2100000, guid: a59c00fb9be5dfa43aca44bc51872f0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -215,7 +215,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &-5006231005272768458
+--- !u!114 &3698286824646167459
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,8 +224,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8069240162939825542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff2ef3e885d26e4c8c1991bca644fd5, type: 3}
+  m_Script: {fileID: 11500000, guid: c0ae13436982ce848bf14a957bfa6b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 4
-  distance: 1
+  radius: 2

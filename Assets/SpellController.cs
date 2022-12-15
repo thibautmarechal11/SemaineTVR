@@ -18,12 +18,14 @@ public class SpellController : MonoBehaviour
     Spell_Fire spell_Fire;
     Spell_Ice spell_Ice;
     Spell_Air spell_Air;
+    Spell_Thunder spell_Thunder;
     public enum Spell
     {
         Nothing,
         Fire,
         Ice,
-        Air
+        Air,
+        Thunder
     }
 
     private void Awake()
@@ -31,6 +33,7 @@ public class SpellController : MonoBehaviour
         spell_Ice = GetComponent<Spell_Ice>();
         spell_Fire = GetComponent<Spell_Fire>();
         spell_Air = GetComponent<Spell_Air>();
+        spell_Thunder = GetComponent<Spell_Thunder>();
     }
 
     private void Update()
@@ -51,8 +54,12 @@ public class SpellController : MonoBehaviour
                     Debug.Log("Ice");
                     currentSpell = Spell.Ice;
                     break;
-                case "air":
+                case "Air":
                     Debug.Log("Air");
+                    currentSpell = Spell.Air;
+                    break;
+                case "Thunder":
+                    Debug.Log("Thunder");
                     currentSpell = Spell.Air;
                     break;
             }
@@ -86,6 +93,11 @@ public class SpellController : MonoBehaviour
                 case Spell.Air:
                     Debug.Log("AirDetectedToShoot");
                     spell_Air.Shoot();
+                    currentSpell = Spell.Nothing;
+                    break;
+                case Spell.Thunder:
+                    Debug.Log("ThunderDetectedToShoot");
+                    spell_Thunder.Shoot();
                     currentSpell = Spell.Nothing;
                     break;
                 default:

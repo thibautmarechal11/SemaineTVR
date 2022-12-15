@@ -1825,6 +1825,7 @@ GameObject:
   - component: {fileID: 541096548}
   - component: {fileID: 541096551}
   - component: {fileID: 541096552}
+  - component: {fileID: 541096553}
   m_Layer: 0
   m_Name: RightController
   m_TagString: Untagged
@@ -1921,7 +1922,7 @@ MonoBehaviour:
   debugCubePrefab: {fileID: 4028461637692966927, guid: 91208da34a9422d4895963d7a45dd9a4,
     type: 3}
   creationMode: 0
-  newGestureName: Air
+  newGestureName: Thunder
 --- !u!114 &541096551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1951,10 +1952,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0418e42345f8546b27a38b07780033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  projectileSpawn: {fileID: 0}
-  airProjectile: {fileID: 0}
+  damage: 6
+  projectileSpawn: {fileID: 264362296}
+  airProjectile: {fileID: 8069240162939825542, guid: f5048fbadc703f14fa18d7c1ca1d7dab,
+    type: 3}
   force: 8
+--- !u!114 &541096553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541096545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14a27f941552784c8528b2dadd212f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 6
+  projectileSpawn: {fileID: 264362296}
+  thunderProjectile: {fileID: 8069240162939825542, guid: 25d9648507ed9884ab92d1750c13391d,
+    type: 3}
+  force: 12
 --- !u!1001 &583351759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9868,7 +9887,7 @@ PrefabInstance:
     - target: {fileID: 1468891483462763265, guid: 483965971cb95d14bac280255fdc82ce,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.82
+      value: 18.33
       objectReference: {fileID: 0}
     - target: {fileID: 1468891483462763265, guid: 483965971cb95d14bac280255fdc82ce,
         type: 3}
@@ -9915,6 +9934,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Golem
       objectReference: {fileID: 0}
+    - target: {fileID: 6483738662267671061, guid: 483965971cb95d14bac280255fdc82ce,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1725982592}
     - target: {fileID: 6483738662267671061, guid: 483965971cb95d14bac280255fdc82ce,
         type: 3}
       propertyPath: slowMaterial
