@@ -18,6 +18,7 @@ public class Spell_Fire : SpellSystem
     {
         Debug.Log("Fire Shoot");
         //base.Shoot();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Spells/Fire");
         GameObject projectileInstance = Instantiate(fireProjectile, projectileSpawn.position, projectileSpawn.rotation);
         projectileInstance.GetComponent<Rigidbody>().AddForce(projectileSpawn.forward * force, ForceMode.VelocityChange);
     }

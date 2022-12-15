@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a5df898a-a5d9-427c-9e0e-d6e49f06cd5c}">
+		<property name="assetPath">
+			<value>Monstre_Var_2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.1892083333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{47642deb-c27d-4306-95b0-547a1ce0e9d2}</destination>
+		</relationship>
+	</object>
+</objects>

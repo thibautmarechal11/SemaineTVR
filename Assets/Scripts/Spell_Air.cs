@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+
 public class Spell_Air : SpellSystem
 {
     [SerializeField] GameObject airProjectile;
@@ -18,6 +19,7 @@ public class Spell_Air : SpellSystem
     {
         Debug.Log("Air Shoot");
         //base.Shoot();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Spells/Wind");
         GameObject projectileInstance = Instantiate(airProjectile, projectileSpawn.position, projectileSpawn.rotation);
         projectileInstance.GetComponent<Rigidbody>().AddForce(projectileSpawn.forward * force, ForceMode.VelocityChange);
     }

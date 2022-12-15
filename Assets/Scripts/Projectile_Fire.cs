@@ -11,6 +11,7 @@ public class Projectile_Fire : MonoBehaviour
     {
         if (collision.gameObject.tag == "Golem" || collision.gameObject.tag == "Ground")
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Spells/Fire");
             Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
             foreach (Collider collider in colliders)
             {

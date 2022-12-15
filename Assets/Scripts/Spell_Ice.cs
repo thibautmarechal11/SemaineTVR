@@ -18,6 +18,7 @@ public class Spell_Ice : SpellSystem
     {
         Debug.Log("Ice Shoot");
         //base.Shoot();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Spells/Ice");
         GameObject projectileInstance = Instantiate(iceProjectile, projectileSpawn.position, projectileSpawn.rotation);
         projectileInstance.GetComponent<Rigidbody>().AddForce(projectileSpawn.forward * force, ForceMode.VelocityChange);
     }

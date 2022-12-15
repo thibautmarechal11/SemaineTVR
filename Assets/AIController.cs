@@ -26,6 +26,8 @@ public class AIController : MonoBehaviour
 
     bool gettingPushed;
     bool zapped;
+    float timer;
+    float rand;
 
     private void Awake()
     {
@@ -39,6 +41,7 @@ public class AIController : MonoBehaviour
 
     private void Start()
     {
+        rand = Random.Range(10,20);
         moveTowardTarget.GoToTarget(player.transform.position);
     }
 
@@ -54,6 +57,14 @@ public class AIController : MonoBehaviour
         if (gettingPushed)
         {
             transform.position += (transform.position - player.transform.position) * Time.deltaTime;
+        }
+
+        timer += Time.deltaTime;
+        if (timer >=  rand)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/Monster");
+            timer = 0;
+            rand = Random.Range(10,20);
         }
     }
 
