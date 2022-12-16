@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1468891483462763279}
   - component: {fileID: 6483738662267671061}
   - component: {fileID: 643669042066681020}
+  - component: {fileID: 1955884062}
   m_Layer: 0
   m_Name: Golem_Entity
-  m_TagString: Untagged
+  m_TagString: Golem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +71,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.66
-  m_Speed: 2
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -107,7 +108,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  slowSpeed: 0.25
   alive: 0
+  player: {fileID: 0}
+  damageMaterial: {fileID: 2100000, guid: bace7a7b1f7cf084b86524857db5eef5, type: 2}
+  slowMaterial: {fileID: 2100000, guid: 78ce3c926c09893468f35f400662e77e, type: 2}
+  normalMaterial: {fileID: 2100000, guid: 41fc6ea366f2f3d4eaf92d3d325c33f8, type: 2}
 --- !u!114 &643669042066681020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +128,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   attackRate: 1
+--- !u!136 &1955884062
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468891483462763276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &1468891483728992101
 GameObject:
   m_ObjectHideFlags: 0

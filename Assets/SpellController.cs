@@ -58,10 +58,7 @@ public class SpellController : MonoBehaviour
                     Debug.Log("Air");
                     currentSpell = Spell.Air;
                     break;
-                case "Thunder":
-                    Debug.Log("Thunder");
-                    currentSpell = Spell.Air;
-                    break;
+                
             }
             currentSpellName = null;
         }

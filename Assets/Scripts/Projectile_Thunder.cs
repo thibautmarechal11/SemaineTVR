@@ -8,6 +8,9 @@ public class Projectile_Thunder : MonoBehaviour
     public float radius = 2;
     GameObject player;
 
+    public GameObject feedbackSphere;
+    public Material feedBackMat;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -18,9 +21,15 @@ public class Projectile_Thunder : MonoBehaviour
         if (collision.gameObject.tag == "Golem")
         {
             Spreading(collision.transform.position);
+            GameObject feedback;
+            Destroy(feedback = Instantiate(feedbackSphere, transform.position, Quaternion.identity), 0.5f);
+            feedback.transform.localScale = new Vector3(radius, radius, radius);
+            feedback.GetComponent<Renderer>().material = feedBackMat;
         }
         else if (collision.gameObject.tag == "Ground")
             Destroy(gameObject);
+
+        Destroy(gameObject);
     }
 
     void Spreading(Vector3 pos)
@@ -36,4 +45,6 @@ public class Projectile_Thunder : MonoBehaviour
             }
             Destroy(gameObject);
     }
+
+
 }
