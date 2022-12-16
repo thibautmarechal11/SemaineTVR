@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Spell_Elec
+  m_Name: M_Spell_Fire_Symb
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _ALPHATEST_ON
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5591b4039ed071b4ba656167359685a3, type: 3}
+        m_Texture: {fileID: 2800000, guid: e6f4c06d7b64c594096d67cea9fd9e62, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -78,6 +78,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.9358271, b: 0.36320752, a: 1}
-    - _EmissionColor: {r: 0.87841636, g: 0.7387707, b: 0.19820678, a: 1}
+    - _Color: {r: 1, g: 0.5529412, b: 0.5529412, a: 1}
+    - _EmissionColor: {r: 0.9254902, g: 0.28627452, b: 0.11764706, a: 1}
   m_BuildTextureStacks: []
