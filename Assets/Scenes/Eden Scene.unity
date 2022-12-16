@@ -3207,7 +3207,7 @@ GameObject:
   - component: {fileID: 708086985}
   - component: {fileID: 708086984}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Air_Indice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4919,7 +4919,7 @@ GameObject:
   - component: {fileID: 1187328116}
   - component: {fileID: 1187328115}
   m_Layer: 0
-  m_Name: Plane (2)
+  m_Name: Thunder_Indice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5017,7 +5017,7 @@ GameObject:
   - component: {fileID: 1259531869}
   - component: {fileID: 1259531868}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: Ice_Indice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5914,7 +5914,7 @@ GameObject:
   - component: {fileID: 1377007461}
   - component: {fileID: 1377007460}
   m_Layer: 0
-  m_Name: Plane (3)
+  m_Name: Fire_Indice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
