@@ -205,6 +205,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2584473638129435747}
+  - component: {fileID: 766074162671442349}
+  - component: {fileID: 1594596604250415952}
   m_Layer: 0
   m_Name: AirTuto
   m_TagString: Untagged
@@ -229,6 +231,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766074162671442349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584473638129435772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef12298b7bc169449c564e56f2cebbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefGemAir: {fileID: 8069240162939825542, guid: f5048fbadc703f14fa18d7c1ca1d7dab,
+    type: 3}
+  animAir: {fileID: 0}
+--- !u!95 &1594596604250415952
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584473638129435772}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d90e8ada1ed3fa498ea608327ad66ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2584473638307223512
 GameObject:
   m_ObjectHideFlags: 0

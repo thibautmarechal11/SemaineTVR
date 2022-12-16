@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4953810776082432209}
   - component: {fileID: 5156257856109125728}
+  - component: {fileID: 4915609158340272470}
   m_Layer: 0
   m_Name: FireTuto
   m_TagString: Untagged
@@ -54,6 +55,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4915609158340272470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953810776082432208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137d9b4b4aac4c342a40a9eecf33988c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefGemFire: {fileID: 8069240162939825542, guid: 1c5e741ea02c2fe4f8eadb21f4f09120,
+    type: 3}
+  animFire: {fileID: 5156257856109125728}
 --- !u!1 &4953810776151340829
 GameObject:
   m_ObjectHideFlags: 0
