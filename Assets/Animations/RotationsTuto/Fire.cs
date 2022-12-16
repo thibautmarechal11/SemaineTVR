@@ -10,7 +10,7 @@ public class Fire : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("FireGem"))
+        if (collision.gameObject.GetComponent<Projectile_Fire>())
         {
             animFire.SetBool("oui", true);
         }

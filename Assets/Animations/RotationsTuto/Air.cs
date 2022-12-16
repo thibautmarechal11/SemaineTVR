@@ -10,7 +10,7 @@ public class Air : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("AirGem"))
+        if (collision.gameObject.GetComponent<Projectile_Air>())
         {
             animAir.SetBool("oui", true);
         }

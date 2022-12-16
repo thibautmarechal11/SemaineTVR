@@ -10,8 +10,9 @@ public class Ice : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("IceGem"))
+        if (collision.gameObject.GetComponent<Projectile_Ice>())
         {
+            Debug.Log("ICE LETS GO");
             animIce.SetBool("oui", true);
         }
     }
